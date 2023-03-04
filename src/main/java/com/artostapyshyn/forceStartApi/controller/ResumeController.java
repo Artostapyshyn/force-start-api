@@ -32,7 +32,6 @@ public class ResumeController {
 
 	private final ResumeService resumeService;
 
-	@CrossOrigin
 	@GetMapping
 	@ResponseStatus(value = HttpStatus.OK)
 	public List<Object> getAllResumes() {
@@ -43,7 +42,6 @@ public class ResumeController {
 		return response;
 	}
 
-	@CrossOrigin
 	@GetMapping("/find{id}")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<Object> getProjectById(@PathParam("id") Long id) {
@@ -60,7 +58,6 @@ public class ResumeController {
 		}
 	}
 
-	@CrossOrigin
 	@PostMapping("/add")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<Object> addAdvertisement(@Valid @RequestBody Resume resume) {
@@ -73,7 +70,6 @@ public class ResumeController {
 		return response;
 	}
 	
-	@CrossOrigin
 	@PutMapping
 	@ResponseStatus(value = HttpStatus.OK)
 	List<Object> editAdvertisement(@Valid @RequestBody Resume resume, @PathParam("id") Long id) {
@@ -91,7 +87,6 @@ public class ResumeController {
 		return response;
 	}
 
-	@CrossOrigin
 	@DeleteMapping
 	@ResponseStatus(value = HttpStatus.ACCEPTED)
 	public List<Object> deleteProject(@PathParam("id") Long id) {

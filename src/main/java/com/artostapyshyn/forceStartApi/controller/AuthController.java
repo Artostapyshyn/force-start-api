@@ -40,7 +40,6 @@ public class AuthController {
 	@Autowired
     private AuthenticationManager authenticationManager;
 
-	@CrossOrigin
     @PostMapping("/login")
     public ResponseEntity<List<Object>> authenticateUser(@RequestBody User user) throws AuthenticationException{
     	List<Object> response = new ArrayList<>();
@@ -53,7 +52,6 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 	
-	@CrossOrigin
 	@PostMapping("/register")
     ResponseEntity<List<Object>> signUpSeller(@Valid @RequestBody User user) {
         List<Object> response = new ArrayList<>();

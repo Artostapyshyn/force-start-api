@@ -68,8 +68,8 @@ public class SecurityConfig {
 	    @Bean
 	    public CorsConfigurationSource corsConfigurationSource() {
 	    	CorsConfiguration configuration = new CorsConfiguration();
-	    	configuration.setAllowedOrigins(Arrays.asList("https://force-start-rest-api.herokuapp.com"));
-	    	configuration.setAllowedMethods(Arrays.asList("GET","POST", "PUT", "DELETE"));
+	    	configuration.setAllowedOrigins(Arrays.asList("*"));
+	    	configuration.setAllowedMethods(Arrays.asList("*"));
 	    	UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 	    	source.registerCorsConfiguration("/**", configuration);
 	    	return source;
