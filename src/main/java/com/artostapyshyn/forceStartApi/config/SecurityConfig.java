@@ -30,10 +30,12 @@ public class SecurityConfig {
 
 	    @Bean	
 	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-	    	http
+	    	http.cors().and()
 	    		.authorizeHttpRequests()
 	    		.requestMatchers(HttpMethod.POST, "/login").permitAll()
 	    		.requestMatchers(HttpMethod.POST, "/register").permitAll() 
+	    		.requestMatchers(HttpMethod.GET, "/resume/**").permitAll() 
+	    		.requestMatchers(HttpMethod.GET, "/projects/**").permitAll() 
 	    		.anyRequest()
 	            .permitAll()
 	            .and()
