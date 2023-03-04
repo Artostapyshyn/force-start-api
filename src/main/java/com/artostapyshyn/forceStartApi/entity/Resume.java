@@ -57,6 +57,9 @@ public class Resume {
 	
 	@Column(name = "personal_info", nullable = false)
 	private String personalInfo;
+	
+	@Column(name = "image_url")
+	private String image;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")

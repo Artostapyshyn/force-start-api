@@ -82,7 +82,7 @@ public class ProjectController {
 		project.setId(id);
 		Project prj = projectService.findById(project.getId()).get();
 
-		//edit(project, prj);
+		edit(project, prj);
 
 		Project updatedProject = projectService.save(prj);
 		response.add(updatedProject);
@@ -104,4 +104,9 @@ public class ProjectController {
 
 		return response;
 	}
+	
+	private void edit(Project project, Project existingProject) {
+		 existingProject.setDescription(project.getDescription());
+		 existingProject.setPrice(project.getPrice());
+	} 
 }

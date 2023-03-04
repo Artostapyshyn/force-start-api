@@ -82,7 +82,7 @@ public class ResumeController {
 		resume.setId(id);
 		Resume res = resumeService.findById(resume.getId()).get();
 
-		//edit(project, prj);
+		edit(resume, res);
 
 		Resume updatedResume = resumeService.save(res);
 		response.add(updatedResume);
@@ -104,4 +104,11 @@ public class ResumeController {
 
 		return response;
 	}
+	
+	private void edit(Resume resume, Resume existingResume) {
+		 existingResume.setPhoneNumber(resume.getPhoneNumber());
+		 existingResume.setSkills(resume.getSkills());
+		 existingResume.setEducation(resume.getEducation());
+		 existingResume.setPersonalInfo(resume.getPersonalInfo());
+	} 
 }
