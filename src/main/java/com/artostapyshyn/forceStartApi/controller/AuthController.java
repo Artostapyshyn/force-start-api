@@ -14,6 +14,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +40,7 @@ public class AuthController {
 	@Autowired
     private AuthenticationManager authenticationManager;
 
+	@CrossOrigin
     @PostMapping("/login")
     public ResponseEntity<List<Object>> authenticateUser(@RequestBody User user) throws AuthenticationException{
     	List<Object> response = new ArrayList<>();
@@ -51,7 +53,7 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 	
-	 
+	@CrossOrigin
 	@PostMapping("/register")
     ResponseEntity<List<Object>> signUpSeller(@Valid @RequestBody User user) {
         List<Object> response = new ArrayList<>();

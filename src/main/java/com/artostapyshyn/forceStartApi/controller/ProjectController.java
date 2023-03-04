@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +32,7 @@ public class ProjectController {
 
 	private final ProjectService projectService;
 
+	@CrossOrigin
 	@GetMapping
 	@ResponseStatus(value = HttpStatus.OK)
 	public List<Object> getAllProjects() {
@@ -42,6 +43,7 @@ public class ProjectController {
 		return response;
 	}
 
+	@CrossOrigin
 	@GetMapping("/find{id}")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<Object> getProjectById(@PathParam("id") Long id) {
@@ -58,6 +60,7 @@ public class ProjectController {
 		}
 	}
 
+	@CrossOrigin
 	@PostMapping("/add")
 	@ResponseStatus(value = HttpStatus.OK)
 	List<Object> addAdvertisement(@Valid @RequestBody Project project) {
@@ -70,6 +73,7 @@ public class ProjectController {
 		return response;
 	}
 	
+	@CrossOrigin
 	@PutMapping
 	@ResponseStatus(value = HttpStatus.OK)
 	List<Object> editAdvertisement(@Valid @RequestBody Project project, @PathParam("id") Long id) {
@@ -86,7 +90,8 @@ public class ProjectController {
 		
 		return response;
 	}
-
+	
+	@CrossOrigin
 	@DeleteMapping
 	@ResponseStatus(value = HttpStatus.ACCEPTED)
 	public List<Object> deleteProject(@PathParam("id") Long id) {
