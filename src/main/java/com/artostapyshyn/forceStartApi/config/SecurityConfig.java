@@ -44,10 +44,7 @@ public class SecurityConfig {
 	    		.anyRequest()
 	            .permitAll()
 	            .and()
-	            .httpBasic()
-	            .and()
-	            .csrf()
-	            .disable();
+	            .httpBasic();
 
 			return http.build();
 	    }
